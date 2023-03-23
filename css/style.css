@@ -215,12 +215,12 @@ h3 {
   padding: 20px 60px;
   font-size: 30px;
   cursor: pointer;
-  background: url('/images/finger.png') center left no-repeat;
+  background: url(../images/finger.png) center left no-repeat;
   transform: translateX(-50%) !important;
 }
 
 .slide_one .start_btn:hover {
-  background-image: url('/images/finger_hover.png');
+  background-image: url(../images/finger_hover.png);
 }
 
 .slide_one .cloudA01 {
