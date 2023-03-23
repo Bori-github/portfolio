@@ -16,7 +16,6 @@ const goToFinishButton = document.getElementById('goToFinishButton');
 const about = document.getElementById('about');
 const contact = document.getElementById('contact');
 const finish = document.getElementById('finish');
-const finger = document.getElementById('finger');
 const flag = document.getElementById('flag');
 const start = document.getElementById('startButton');
 const works = document.getElementById('works');
