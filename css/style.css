@@ -1,0 +1,785 @@
+@charset "utf-8";
+
+html {
+  box-sizing: border-box;
+  font-family: 'DungGeunMo';
+  font-size: 16px;
+  font-weight: normal;
+  background-color: #000;
+}
+
+body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  font: inherit;
+}
+
+/* The div withe the class of "wrap"
+dictates the size of our images.
+This will change the size of the slider.
+The overflow makes sur thier are no scroll bars.*/
+
+.wrap {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #120103;
+  color: #fff;
+  text-align: center;
+}
+
+/* header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+}
+
+.header_wrap {
+  width: 1280px;
+  margin: 0 auto;
+  position: relative;
+}
+
+header .score_box {
+  font-size: 25px;
+  text-align: left;
+  position: absolute;
+  top: 1em;
+  left: 0;
+}
+
+header .coin_box {
+  display: none;
+  font-size: 25px;
+  position: absolute;
+  top: 1em;
+  left: 200px;
+}
+
+header .coin_box img {
+  height: 25px;
+}
+
+header .time_box {
+  font-size: 25px;
+  text-align: right;
+  position: absolute;
+  top: 1em;
+  right: 0;
+}
+
+header label {
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 30px;
+  padding: 1em 1em 0;
+  text-shadow: 2px 2px 0 #000;
+}
+
+header label:hover {
+  background: url(../images/header/menu_hover.png) no-repeat center 40%;
+}
+
+h3 {
+  text-shadow: 2px 2px 1px #000;
+  text-decoration: none;
+}
+
+/* slide */
+.slide {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  z-index: 10;
+  padding: 0;
+  background-image: url(../images/background/bg_blue.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+  transition: left 0s 0.75s;
+}
+
+.slide h1,
+.slide h3,
+.slide figure {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform 0.5s 0.5s, opacity 0.5s;
+}
+
+[id^='slide']:checked + .slide {
+  left: 0;
+  z-index: 100;
+  transition: left 0.75s ease-out;
+}
+
+[id^='slide']:checked + .slide h1,
+[id^='slide']:checked + .slide h3,
+[id^='slide']:checked + .slide figure {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s 0.5s;
+}
+
+/* images */
+.mario,
+.cloudA01,
+.cloudA02,
+.cloudA03,
+.cloudB,
+.mountianA,
+.mountianB,
+.grass,
+.fenceA,
+.fenceB,
+.treeA,
+.treeB,
+.pipe_orange01,
+.pipe_orange02,
+.pipe_orange03,
+.pipe_orange04,
+.box,
+.blocksA,
+.blocksB,
+.blocksC,
+.pipeA,
+.flagpole,
+.flag,
+.win,
+.castle,
+.spark01,
+.spark02,
+.spark03,
+.spark04,
+.spark05,
+.click_me {
+  position: absolute;
+}
+
+.bg_bottom {
+  width: 100%;
+  height: 64px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+/* slide_wrap */
+.slide_wrap {
+  width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+}
+
+/* slide_one  */
+.slide_one .portfolio_world {
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+}
+
+.slide_one .portfolio_world img {
+  width: 100%;
+}
+
+.slide_one .start_btn {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  z-index: 99;
+  padding: 20px 60px;
+  font-size: 30px;
+  cursor: pointer;
+  background: url('/images/finger.png') center left no-repeat;
+  transform: translateX(-50%) !important;
+}
+
+.slide_one .start_btn:hover {
+  background-image: url('/images/finger_hover.png');
+}
+
+.slide_one .cloudA01 {
+  top: 20vh;
+  left: 0;
+}
+
+.slide_one .cloudA02 {
+  top: 40vh;
+  right: 10vw;
+}
+
+.slide_one .cloudB {
+  top: 30vh;
+  right: 0;
+}
+
+.slide_one .mountianA {
+  bottom: 60px;
+  left: -5vw;
+}
+
+.slide_one .grass {
+  bottom: 60px;
+  right: 10vw;
+}
+
+.slide_one .mountianB {
+  bottom: 60px;
+  right: 1vw;
+}
+
+.slide_one .bg_bottom {
+  background: url(../images/background/bg_ground01.png);
+}
+
+.slide_one .mario {
+  bottom: 60px;
+  left: 0;
+  z-index: 9;
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: bounce;
+  /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1s;
+  /* don't forget to set a duration! */
+}
+
+.slide_one .about {
+  overflow: hidden;
+  display: none;
+  width: 80%;
+  padding: 30px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  color: #000000;
+  font-size: 18px;
+  line-height: 1.6;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
+
+.slide_one .profile_box {
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+
+.slide_one .profile_box p:nth-child(2n) {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.slide_one .about_me {
+  float: left;
+  width: 50%;
+  height: 100%;
+  line-height: 30px;
+}
+
+.slide_one .typing-txt {
+  display: none;
+}
+
+.slide_one .typing ul li {
+  display: block;
+}
+
+.slide_one .typing ul li.on {
+  display: inline-block;
+  animation-name: cursor;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes cursor {
+  0% {
+    border-right: 1px solid #fff;
+  }
+
+  50% {
+    border-right: 1px solid #000;
+  }
+
+  100% {
+    border-right: 1px solid #fff;
+  }
+}
+
+.slide_one .next_btn {
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  font-size: 20px;
+  padding: 5px 15px;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+}
+
+/* slide_two  */
+.slide_two h3 {
+  width: 50%;
+  position: absolute;
+  top: 35%;
+  left: 25%;
+  font-size: 50px;
+  line-height: 150%;
+  background-color: #333;
+}
+
+.slide_two .cloudA01 {
+  top: 30vh;
+  left: 0vw;
+}
+
+.slide_two .cloudA02 {
+  top: 13vh;
+  right: 20vw;
+}
+
+.slide_two .cloudA03 {
+  top: 28vh;
+  right: 0vw;
+}
+
+.slide_two .grass {
+  bottom: 60px;
+  left: -6vw;
+}
+
+.slide_two .treeA {
+  bottom: 60px;
+  left: 16.5vw;
+}
+
+.slide_two .treeB {
+  bottom: 60px;
+  right: 18vw;
+}
+
+.slide_two .fenceA {
+  bottom: 60px;
+  left: 38vw;
+}
+
+.slide_two .fenceB {
+  bottom: 60px;
+  right: -1vw;
+}
+
+.slide_two .pipe_orange01 {
+  bottom: 55px;
+  left: 15%;
+  transform: translateX(-50%) !important;
+}
+
+.slide_two .pipe_orange02 {
+  bottom: 55px;
+  left: 38.3%;
+  transform: translateX(-50%) !important;
+}
+
+.slide_two .pipe_orange03 {
+  right: 38.3%;
+  bottom: 55px;
+  transform: translateX(50%) !important;
+}
+
+.slide_two .pipe_orange04 {
+  right: 15%;
+  bottom: 55px;
+  transform: translateX(50%) !important;
+}
+
+.slide_two .pipe_num {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.slide_two .pipe_num:hover {
+  background: url(../images/common/star.png) no-repeat 15% center;
+}
+
+.slide_two .mario {
+  bottom: 60px;
+  z-index: 9;
+}
+
+.slide_two .bg_bottom {
+  background: url(../images/background/bg_ground01.png);
+}
+
+.slide_two .works_box {
+  width: 450px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 20px;
+  color: #000000;
+  overflow: hidden;
+  display: none;
+}
+
+.slide_two .works_thumb {
+  float: left;
+  width: 35%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.slide_two .works_thumb img {
+  width: 100%;
+}
+
+.slide_two .works_txt {
+  float: left;
+  width: 65%;
+}
+
+.slide_two .works_title {
+  border-bottom: 1px solid #000000;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.works_txt ul {
+  text-align: left;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.works_box p {
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.slide_two .works_box:nth-of-type(1) {
+  position: absolute;
+  left: 15%;
+  bottom: 360px;
+  transform: translateX(-50%) !important;
+}
+
+.slide_two .works_box:nth-of-type(2) {
+  position: absolute;
+  left: 38.3%;
+  bottom: 360px;
+  transform: translateX(-50%) !important;
+}
+
+.slide_two .works_box:nth-of-type(2) .works_thumb img {
+  width: 120%;
+  margin-top: 20px;
+}
+
+.slide_two .works_box:nth-of-type(3) {
+  position: absolute;
+  right: 38.3%;
+  bottom: 360px;
+  transform: translateX(50%) !important;
+}
+
+.slide_two .works_box:nth-of-type(4) {
+  position: absolute;
+  right: 15%;
+  bottom: 360px;
+  transform: translateX(50%) !important;
+}
+
+.slide_two .next_btn {
+  position: absolute;
+  right: 0;
+  bottom: 135px;
+  font-size: 34px;
+  cursor: pointer;
+}
+
+/* slide_three  */
+.slide_three {
+  background: none;
+  background-color: #000;
+}
+
+.slide_three .box {
+  top: 60%;
+  left: 568px;
+}
+
+.slide_three .blocksA {
+  top: 40%;
+  left: 360px;
+}
+
+.slide_three .blocksB {
+  top: 60%;
+  left: 300px;
+}
+
+.slide_three .blocksC {
+  top: 60%;
+  left: 760px;
+}
+
+.slide_three .bg_left {
+  width: 64px;
+  position: fixed;
+  top: 80px;
+  bottom: 65px;
+  left: 0;
+  background: url(../images/background/block.png);
+}
+
+.slide_three .bg_top {
+  width: 75vw;
+  height: 64px;
+  position: fixed;
+  top: 80px;
+  right: 0;
+  z-index: 10;
+  background: url(../images/background/block.png);
+}
+
+.slide_three .bg_right {
+  width: 64px;
+  position: fixed;
+  top: 80px;
+  right: 0;
+  bottom: 65px;
+  z-index: 10;
+  background: url(../images/background/block.png);
+}
+
+.slide_three .pipeB {
+  position: fixed;
+  top: 80px;
+  right: 64px;
+  bottom: 65px;
+  z-index: 10;
+}
+
+.slide_three .pipeB img {
+  height: 100%;
+}
+
+.slide_three .contact_box {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  border: 3px solid #ffffff;
+  border-radius: 10px;
+  color: #000;
+  background: rgba(255, 255, 255, 0.8);
+  transform: translate(-50%, -50%);
+}
+
+.slide_three .contact_box > p {
+  font-size: 30px;
+  line-height: 1.6;
+  border-bottom: 3px solid #ffffff;
+}
+
+.slide_three .next_btn {
+  background-color: #ffffff;
+  font-size: 20px;
+  border: 2px solid #000000;
+  padding: 3px 10px;
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.slide_three .contact_box div {
+  text-align: left;
+  font-size: 30px;
+  margin: 30px 40px;
+}
+
+.slide_three .click_me {
+  left: 0;
+  z-index: 9;
+  bottom: 150px;
+  background: url(../images/header/menu_hover.png) no-repeat bottom center;
+  padding-bottom: 20px;
+}
+
+.slide_three .mario {
+  cursor: pointer;
+  bottom: 60px;
+  left: 0;
+  z-index: 9;
+  display: inline-block;
+  margin: 0 0.5rem;
+  animation: bounce;
+  /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1s;
+  /* don't forget to set a duration! */
+}
+
+.slide_three .bg_bottom {
+  background: url(../images/background/bg_ground02.png);
+  z-index: 10;
+}
+
+/* slide_four  */
+.slide_four .cloudA01 {
+  top: 35vh;
+  left: 10vw;
+}
+
+.slide_four .cloudB {
+  top: 20vh;
+  right: 23vw;
+}
+
+.slide_four .cloudA02 {
+  top: 30vh;
+  right: 10vw;
+}
+
+.slide_four .mountianA {
+  bottom: 60px;
+  left: 0vw;
+}
+
+.slide_four .grass {
+  bottom: 60px;
+  right: 5vw;
+}
+
+.slide_four .flagpole {
+  bottom: 60px;
+  left: 30px;
+}
+
+.slide_four .flag {
+  bottom: 630px;
+  left: 0;
+}
+
+.slide_four .castle {
+  right: 0;
+  bottom: 60px;
+  left: 0;
+}
+
+.slide_four .pipeA {
+  bottom: 60px;
+  right: 0;
+}
+
+.slide_four .spark01 {
+  top: 13vw;
+  left: 24vw;
+  display: none;
+}
+
+.slide_four .spark02 {
+  top: 22vw;
+  left: 19vw;
+  display: none;
+}
+
+.slide_four .spark03 {
+  top: 15vw;
+  right: 20vw;
+  display: none;
+}
+
+.slide_four .spark04 {
+  top: 24vw;
+  right: 21vw;
+  display: none;
+}
+
+.slide_four .spark05 {
+  top: 14vw;
+  left: 28vw;
+  display: none;
+}
+
+.slide_four .win {
+  display: none;
+  right: 0;
+  bottom: 380px;
+  left: 0;
+}
+
+.slide_four .click_me {
+  right: 0;
+  left: 0;
+  z-index: 9;
+  bottom: 150px;
+  background: url(../images/header/menu_hover.png) no-repeat bottom center;
+  padding-bottom: 20px;
+  display: none;
+}
+
+.slide_four .mario {
+  bottom: 60px;
+  z-index: 9;
+}
+
+.slide_four label {
+  cursor: pointer;
+}
+
+.slide_four .bg_bottom {
+  background: url(../images/background/bg_ground01.png);
+}
+
+/* slide_five  */
+.slide_five {
+  background: #000;
+}
+
+.slide_five .gameover_txt {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  font-size: 10rem;
+  text-shadow: 5px 5px 1px #4090c0;
+}
+
+.slide_five .gameover_txt h3 {
+  font-size: 4rem;
+  text-shadow: 3px 3px 1px #4090c0;
+}
